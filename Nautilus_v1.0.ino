@@ -1,7 +1,7 @@
 /*
  * Nautilus - ESP32-C3 Environmental Monitor
  * Version: 1.0.0
- * Author: codebymanuel
+ * Author: codebyleunam 
  * License: GNU GPLv3
  * * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
