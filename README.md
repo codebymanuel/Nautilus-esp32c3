@@ -64,4 +64,4 @@ Install these libraries via Arduino Library Manager:
 - Critical: > 80%
 
 ---
-Version: 1.0.0 | Author: codebymanuel | License: GPLv3
+Version: 1.0.0 | Author: codebyleunam | License: GPLv3
