@@ -7,11 +7,17 @@
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License.
  */
-#include <WiFi.h>
 #include <WiFiClientSecure.h>
 #include <UniversalTelegramBot.h>
 #include <DHT.h>
+#include <WiFiMulti.h>
 #include "arduino_secrets.h" 
+
+WiFiMulti wifiMulti;
+
+//Fill your credentials for mobile connections with your mobile hotspot
+const char* ssid_mobile = SECRET_SSID; 
+const char* password_mobile = SECRET_PASS;
 
 //  Fill your credentials in arduino_secrets.h values below are placeholders.
 const char* ssid = SECRET_SSID; 
@@ -30,10 +36,12 @@ void setup() {
   Serial.begin(115200);
   dht.begin(); 
   
-  WiFi.begin(ssid, password);
+  wifiMulti.addAP(ssid_mobile, password_mobile);
+  wifiMulti.addAP(ssid, password);
+  
   client.setInsecure(); // Required for ESP32 to skip SSL certificate validation
 
-  while (WiFi.status() != WL_CONNECTED) {
+  while (wifiMulti.run() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
   }
